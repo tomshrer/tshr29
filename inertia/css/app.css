@@ -3,9 +3,8 @@
 @import 'keen-slider/keen-slider.min.css';
 
 @layer base {
-  * {
-    @apply text-stone-50;
-
+  body {
+    @apply text-stone-50 bg-black;
     font-family:
       system-ui,
       -apple-system,
@@ -18,7 +17,6 @@
       'Open Sans',
       'Helvetica Neue',
       sans-serif;
-
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }

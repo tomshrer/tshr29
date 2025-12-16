@@ -1,4 +1,4 @@
-import { Head } from '@inertiajs/react'
+import { Head, Link } from '@inertiajs/react'
 import Services from '~/sections/Services'
 import FaqGrid from '~/sections/Faqs'
 
@@ -13,8 +13,8 @@ export default function Home() {
         />
       </Head>
 
-      <div className="relative isolate px-6 pb-14 pt-32 lg:px-8 h-screen flex items-center bg-black">
-        <div className="text-start max-w-7xl mx-auto">
+      <div className="relative isolate px-6 pb-14 pt-32 lg:px-8 h-[calc(100vh-81px)] flex items-center bg-gradient-to-b from-black to-stone-950">
+        <div className="text-start max-w-6xl mx-auto">
           <h1 className="text-6xl text-balance font-light text-white sm:text-8xl">
             Agence digitale - sites web, design & communication.
           </h1>
@@ -23,12 +23,12 @@ export default function Home() {
             mesure, un design innovant et des stratégies de communication efficaces.
           </p>
           <div className="mt-10 flex items-center justify-start gap-x-6">
-            <a
+            <Link
               href="#"
               className="rounded-xs bg-neutral-800 px-5 py-2.5 font-medium text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
               Lancer mon projet
-            </a>
+            </Link>
           </div>
         </div>
       </div>

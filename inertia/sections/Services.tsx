@@ -23,7 +23,7 @@ const sections = [
 
 export default function Services() {
   return (
-    <div className="bg-gradient-to-t from-stone-950 to-stone-900 w-full">
+    <div className="bg-stone-950 w-full">
       <div className="max-w-6xl mx-auto z-10 relative py-20">
         <section className="flex flex-col space-y-7 sm:space-y-14">
           <h2 className="text-2xl text-center sm:text-left sm:text-4xl">

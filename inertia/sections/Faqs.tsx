@@ -41,7 +41,7 @@ const faqs = [
 
 export default function FaqGrid() {
   return (
-    <section className="px-6 py-20 bg-stone-950 min-h-screen">
+    <section className="px-6 py-20 bg-stone-950">
       <div className="max-w-6xl mx-auto flex gap-20 flex-col lg:flex-row">
         <div className="flex-1 flex flex-col space-y-3 sm:space-y-5">
           <h2 className="text-2xl sm:text-4xl">Réponses à vos questions</h2>
