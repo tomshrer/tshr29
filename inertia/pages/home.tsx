@@ -20,7 +20,7 @@ export default function Home() {
           </h1>
           <p className="mt-8 text-lg font-light text-pretty text-gray-500 sm:text-xl/8">
             Nous aidons les entreprises à se démarquer en ligne grâce à des solutions web sur
-            mesure, un design innovant et des stratégies de communication efficaces.
+            mesure, un design innovant et des stratégies de communication.
           </p>
           <div className="mt-10 flex items-center justify-start gap-x-6">
             <Link
