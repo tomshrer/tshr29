@@ -41,14 +41,14 @@ const faqs = [
 
 export default function FaqGrid() {
   return (
-    <section className="px-6 py-28 bg-neutral-950 min-h-screen">
+    <section className="px-6 py-20 bg-stone-950 min-h-screen">
       <div className="max-w-6xl mx-auto flex gap-20 flex-col lg:flex-row">
-        <div className="flex-1">
-          <h1 className="text-white text-5xl scale-y-95 mb-4">Réponses à vos questions</h1>
-          <span className="text-neutral-500 text-lg">
+        <div className="flex-1 flex flex-col space-y-3 sm:space-y-5">
+          <h2 className="text-2xl sm:text-4xl">Réponses à vos questions</h2>
+          <p className="text-stone-400 text-sm">
             Trouvez rapidement des réponses aux questions les plus fréquentes sur notre agence et
             nos services.
-          </span>
+          </p>
         </div>
 
         <div className="flex-1 divide-y divide-neutral-800">
@@ -57,15 +57,13 @@ export default function FaqGrid() {
               {({ open }) => (
                 <div className="py-6">
                   <DisclosureButton className="group flex w-full items-center justify-between text-left cursor-pointer">
-                    <h3 className="text-base sm:text-lg scale-y-95 text-white tracking-tight font-medium">
-                      {faq.question}
-                    </h3>
+                    <h3 className="text-white">{faq.question}</h3>
                     <div className="text-white">
                       {open ? <Minus size={20} /> : <Plus size={20} />}
                     </div>
                   </DisclosureButton>
                   {faq.answer && (
-                    <DisclosurePanel className="mt-3 text-sm sm:text-base text-neutral-400 leading-relaxed">
+                    <DisclosurePanel className="mt-3 text-sm text-stone-400">
                       {faq.answer}
                     </DisclosurePanel>
                   )}

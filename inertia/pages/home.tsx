@@ -1,18 +1,6 @@
-import { Head, Link } from '@inertiajs/react'
-import Cta from '~/sections/Cta'
+import { Head } from '@inertiajs/react'
+import Services from '~/sections/Services'
 import FaqGrid from '~/sections/Faqs'
-import HowItWorks from '~/sections/HowItWorks'
-import ServicesScroll from '~/sections/Services'
-import Testimonials from '~/sections/Testimonials'
-
-const projets = [
-  {
-    color: 'bg-red-50',
-  },
-  {
-    color: 'bg-blue-50',
-  },
-]
 
 export default function Home() {
   return (
@@ -27,10 +15,10 @@ export default function Home() {
 
       <div className="relative isolate px-6 pb-14 pt-32 lg:px-8 h-screen flex items-center bg-black">
         <div className="text-start max-w-7xl mx-auto">
-          <h1 className="text-6xl scale-y-95 fontme tracking-tight text-balance text-white sm:text-8xl">
+          <h1 className="text-6xl text-balance font-light text-white sm:text-8xl">
             Agence digitale - sites web, design & communication.
           </h1>
-          <p className="mt-8 text-lg font-medium text-pretty text-gray-500 sm:text-xl/8">
+          <p className="mt-8 text-lg font-light text-pretty text-gray-500 sm:text-xl/8">
             Nous aidons les entreprises à se démarquer en ligne grâce à des solutions web sur
             mesure, un design innovant et des stratégies de communication efficaces.
           </p>
@@ -45,21 +33,11 @@ export default function Home() {
         </div>
       </div>
 
-      <ServicesScroll />
+      <Services />
 
-      <div className="p-12 bg-gray-50">
-        <h2 className="text-5xl scale-y-95 antialiased mb-6 text-start">Réalisations</h2>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
-          {projets.map((projet, index) => (
-            <div key={index} className="aspect-[16/9] p-6 flex items-end shadow-lg"></div>
-          ))}
-        </div>
-      </div>
-
-      <Testimonials />
+      {/*<Testimonials />*/}
       <FaqGrid />
-      <Cta />
+      {/*<Cta />*/}
     </>
   )
 }
