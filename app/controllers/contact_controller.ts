@@ -7,20 +7,18 @@ export default class ContactController {
     return inertia.render('contact')
   }
 
-  async execute({ session, request, response }: HttpContext) {
+  async execute({ request, response }: HttpContext) {
     const payload = await request.validateUsing(contactValidator)
 
     await mail.send((m) => {
       m.from('no-reply@tshr29.com')
         .to('tom.scherer@tshr29.com')
-        .replyTo(payload.email, payload.name)
+        .replyTo(payload.email, payload.lastName)
         .subject('Nouveau message depuis formulaire de contact')
         .html(
-          `Nom: ${payload.name}<br>Email: ${payload.email}<br>Message:<br>${payload.message.replaceAll('\n', '<br>')}`
+          `Nom: ${payload.lastName}<br>Email: ${payload.email}<br>Message:<br>${payload.content.replaceAll('\n', '<br>')}`
         )
     })
-
-    session.flash('success', 'Votre message a bien été envoyé !')
 
     return response.redirect().back()
   }

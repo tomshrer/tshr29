@@ -1,19 +1,21 @@
-import { ArrowRight, Mail } from 'lucide-react'
-import { Head, useForm, usePage } from '@inertiajs/react'
-import { motion } from 'framer-motion'
+import { Head, useForm } from '@inertiajs/react'
+import toast from 'react-hot-toast'
 
 export default function Contact() {
-  const { success } = usePage<any>().props
-  const { data, setData, post, processing, errors } = useForm({
-    name: '',
+  const { data, setData, post, processing } = useForm({
+    firstName: '',
+    lastName: '',
     email: '',
-    message: '',
+    content: '',
   })
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault()
     post('/contact', {
-      onSuccess: () => setData({ name: '', email: '', message: '' }),
+      onSuccess: () => {
+        setData({ firstName: '', lastName: '', email: '', content: '' }),
+          toast.success('Message envoyé avec succès !')
+      },
     })
   }
 
@@ -26,87 +28,69 @@ export default function Contact() {
           content="Contactez tshr29 Studio, agence web à Sarreguemines. Pour toute demande de création de site internet, design UX/UI ou communication digitale, envoyez-nous un message."
         />
       </Head>
-
-      <main className="min-h-screen bg-white flex items-center justify-center relative px-6 py-20 overflow-hidden">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: 'easeOut' }}
-          className="relative z-10 w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-12"
-        >
-          {/* Infos */}
-          <div className="text-black font-medium space-y-10">
-            <h1 className="text-4xl md:text-5xl scale-y-95 mt-4">Let's get in touch</h1>
-            <p className="text-neutral-400 max-w-xl tracking-tight text-lg">
-              Dont' be afraid to say hello with us!
-            </p>
-
-            {/* Email uniquement */}
-            <div className="rounded-2xl p-5 flex items-center justify-between hover:bg-neutral-950 transition">
-              <div>
-                <p className="text-black">Email</p>
-                <p className="text-lg">tom.scherer@tshr29.com</p>
-              </div>
-            </div>
-
-            {success && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                className="text-green-400"
-              >
-                {success}
-              </motion.div>
-            )}
-          </div>
-
-          <form
-            onSubmit={submit}
-            className="backdrop-blur border border-neutral-900 rounded p-4 space-y-6"
-          >
-            <div className="space-y-2">
+      <div className="min-h-[calc(100vh-81px)] px-6 py-12 sm:py-16 lg:px-8">
+        <div className="mx-auto max-w-2xl text-center">
+          <h2 className="text-4xl sm:text-6xl">Ready to talk?</h2>
+          <p className="mt-2 text-lg/8 font-thin text-stone-400">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+          </p>
+        </div>
+        <form onSubmit={submit} className="mx-auto mt-16 max-w-xl sm:mt-20">
+          <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+            <div>
               <input
+                name="firstName"
                 type="text"
-                placeholder="Prénom et nom"
-                value={data.name}
-                onChange={(e) => setData('name', e.target.value)}
-                className="w-full px-4 py-3  border border-neutral-800 rounded text-white placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-blue-600"
+                value={data.firstName}
+                onChange={(e) => setData('firstName', e.target.value)}
+                placeholder="Saisissez votre prénom"
+                className="w-full border-0 appearance-none transition-colors rounded-md px-3 gap-2 py-3 text-sm bg-stone-900 text-stone-50 ring ring-inset focus:outline-none focus:ring-stone-800 disabled:cursor-not-allowed disabled:opacity-75 placeholder:text-stone-400 ring-stone-700 focus-visible:ring-2 focus-visible:ring-inset"
               />
-              {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
             </div>
 
-            <div className="space-y-2">
+            <div>
               <input
-                type="email"
-                placeholder="Votre e-mail"
+                name="lastName"
+                type="text"
+                value={data.lastName}
+                onChange={(e) => setData('lastName', e.target.value)}
+                placeholder="Saisissez votre nom"
+                className="w-full border-0 appearance-none transition-colors rounded-md px-3 gap-2 py-3 text-sm bg-stone-900 text-stone-50 ring ring-inset focus:outline-none focus:ring-stone-800 disabled:cursor-not-allowed disabled:opacity-75 placeholder:text-stone-400 ring-stone-700 focus-visible:ring-2 focus-visible:ring-inset"
+              />
+            </div>
+
+            <div className="sm:col-span-2">
+              <input
+                name="email"
+                type="text"
                 value={data.email}
                 onChange={(e) => setData('email', e.target.value)}
-                className="w-full px-4 py-3 border border-neutral-800 rounded text-white placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-blue-600"
+                placeholder="Saisissez votre adresse email"
+                className="w-full border-0 appearance-none transition-colors rounded-md px-3 gap-2 py-3 text-sm bg-stone-900 text-stone-50 ring ring-inset focus:outline-none focus:ring-stone-800 disabled:cursor-not-allowed disabled:opacity-75 placeholder:text-stone-400 ring-stone-700 focus-visible:ring-2 focus-visible:ring-inset"
               />
-              {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
             </div>
 
-            <div className="space-y-2">
+            <div className="sm:col-span-2">
               <textarea
-                placeholder="Votre message"
+                placeholder="Saisissez votre message"
                 rows={5}
-                value={data.message}
-                onChange={(e) => setData('message', e.target.value)}
-                className="w-full px-4 py-3 border border-neutral-800 rounded text-white placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-blue-600"
+                value={data.content}
+                onChange={(e) => setData('content', e.target.value)}
+                className="w-full border-0 appearance-none transition-colors rounded-md px-3 gap-2 py-3 text-sm bg-stone-900 text-stone-50 ring ring-inset focus:outline-none focus:ring-stone-800 disabled:cursor-not-allowed disabled:opacity-75 placeholder:text-stone-400 ring-stone-700 focus-visible:ring-2 focus-visible:ring-inset"
               />
-              {errors.message && <p className="text-red-500 text-sm">{errors.message}</p>}
             </div>
-
+          </div>
+          <div className="mt-10">
             <button
               type="submit"
               disabled={processing}
-              className="w-full py-3 bg-black text-white font-medium rounded-md hover:bg-neutral-200 transition disabled:opacity-50"
+              className="rounded-xs w-full bg-neutral-800 px-5 py-2.5 font-medium text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
               {processing ? 'Envoi en cours...' : 'Send to us'}
             </button>
-          </form>
-        </motion.div>
-      </main>
+          </div>
+        </form>
+      </div>
     </>
   )
 }

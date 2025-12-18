@@ -1,6 +1,7 @@
 import ReactLenis from 'lenis/react'
 import Footer from './Footer'
-import { Header } from './header'
+import Header from './Header'
+import toast, { Toaster } from 'react-hot-toast'
 
 interface Props {
   children: React.ReactNode
@@ -12,7 +13,8 @@ export function Layout(props: Props) {
   return (
     <ReactLenis root>
       <Header />
-      <main>{children}</main>
+      <Toaster position="top-right" />
+      <>{children}</>
       <Footer />
     </ReactLenis>
   )

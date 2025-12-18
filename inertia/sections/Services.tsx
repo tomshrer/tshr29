@@ -1,5 +1,3 @@
-import { useRef } from 'react'
-
 const sections = [
   {
     title: 'Développement Web',
@@ -24,7 +22,7 @@ const sections = [
 export default function Services() {
   return (
     <div className="bg-stone-950 w-full">
-      <div className="max-w-6xl mx-auto z-10 relative py-20">
+      <div className="max-w-6xl mx-auto z-10 relative py-20 sm:px-0 lg:px-4 px-6">
         <section className="flex flex-col space-y-7 sm:space-y-14">
           <h2 className="text-2xl text-center sm:text-left sm:text-4xl">
             Découvrez nos services pour développer votre présence digitale

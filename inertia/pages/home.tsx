@@ -12,7 +12,6 @@ export default function Home() {
           content="Agence web à Sarreguemines spécialisée dans la création de sites internet, design UX/UI et communication digitale. Donnez vie à vos projets avec tshr29 Studio."
         />
       </Head>
-
       <div className="relative isolate px-6 pb-14 pt-32 lg:px-8 h-[calc(100vh-81px)] flex items-center bg-gradient-to-b from-black to-stone-950">
         <div className="text-start max-w-6xl mx-auto">
           <h1 className="text-6xl text-balance font-light text-white sm:text-8xl">
